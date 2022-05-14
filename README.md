@@ -4,3 +4,4 @@ gPBL workshop was organized by SIT, Japan and it is a collaborative program brou
 design server side application with IOT. 
 
 The IOT device we choose for this projectis remote robot car system and the product we accomplised was showed in below:
+{}["arduino robot car.jpg"]
