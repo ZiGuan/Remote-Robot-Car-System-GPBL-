@@ -5,10 +5,10 @@
 const char *ssid = "Ash";
 const char *password = "junan0805";
 
-const IPAddress serverIP(160,16,84,67); //欲访问的地址
-uint16_t serverPort = 50201;         //服务器端口号
+const IPAddress serverIP(160,16,84,67); // IP Address
+uint16_t serverPort = 50201;         // SIT Server port
 
-WiFiClient client; //声明一个客户端对象，用于与服务器进行连接
+WiFiClient client; // Build connection with server
 
 void setup()
 {
@@ -18,7 +18,7 @@ void setup()
     Serial.println();
 
     WiFi.mode(WIFI_STA);
-    WiFi.setSleep(false); //关闭STA模式下wifi休眠，提高响应速度
+    WiFi.setSleep(false); // Close STA mode to increase transmit speed
     WiFi.begin(ssid, password);
     while (WiFi.status() != WL_CONNECTED)
     {
@@ -38,9 +38,9 @@ int num = 0;
 void loop()
 {
   // put your main code here, to run repeatedly:
-  Serial.println("連線服務端");
+  Serial.println("Connect server);
   if(!client.connect(serverIP,serverPort)){
-    Serial.println("連線失敗");
+    Serial.println("Connection Failed");
     return ;
   }
 
@@ -52,7 +52,7 @@ void loop()
     }
     while(client.read()){
     String line = client.readStringUntil('\n');
-    Serial.print("读取到数据：");
+    Serial.print("Data Reading：");
     Serial.println(line);
     Serial2.println(line);
     }
